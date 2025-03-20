@@ -7,15 +7,18 @@ const Footer = () => {
     <footer className="bg-white border-t py-12 w-full">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Information */}
+          {/* Unternehmensinformationen */}
           <div>
             <div className="flex items-center mb-4">
               <Heart className="h-6 w-6 text-red-500 mr-2" />
-              <h3 className="text-xl font-bold text-blue-900">BioCardin</h3>
+              <h3 className="text-xl font-bold">
+                <span className="text-blue-900">bio</span>
+                <span className="text-red-500">Cardin</span>
+              </h3>
             </div>
             <p className="text-gray-600 mb-4">
-              Innovative heart health solutions backed by science and trusted by
-              healthcare professionals worldwide.
+              Innovative Lösungen für die Herzgesundheit, wissenschaftlich
+              fundiert und weltweit von Gesundheitsfachkräften vertrauenswürdig.
             </p>
             <div className="space-y-2">
               <div className="flex items-center">
@@ -26,99 +29,99 @@ const Footer = () => {
                 <Mail className="h-4 w-4 text-blue-700 mr-2" />
                 <span className="text-gray-700">contact@biocardin.com</span>
               </div>
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <MapPin className="h-4 w-4 text-blue-700 mr-2" />
                 <span className="text-gray-700">
                   123 Medical Plaza, Boston, MA
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Schnellzugriff */}
           <div>
             <h3 className="text-lg font-semibold text-blue-900 mb-4">
-              Quick Links
+              Schnellzugriff
             </h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  About BioCardin
+                  Über BioCardin
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Heart Health Resources
+                  Ressourcen zur Herzgesundheit
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Clinical Studies
+                  Klinische Studien
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Healthcare Professionals
+                  Gesundheitsfachkräfte
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Patient Support
+                  Patientenunterstützung
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Regulatory Information */}
+          {/* Regulatorische Informationen */}
           <div>
             <h3 className="text-lg font-semibold text-blue-900 mb-4">
-              Regulatory Information
+              Regulatorische Informationen
             </h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  FDA Approval
+                  FDA-Zulassung
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Safety Information
+                  Sicherheitsinformationen
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Prescribing Information
+                  Verschreibungsinformationen
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Medication Guide
+                  Medikamentenleitfaden
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-700">
-                  Report Side Effects
+                  Nebenwirkungen melden
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Trust Badges */}
+          {/* Vertrauensabzeichen */}
           <div>
             <h3 className="text-lg font-semibold text-blue-900 mb-4">
-              Trust & Certifications
+              Vertrauen & Zertifizierungen
             </h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col items-center p-2 border rounded-md">
                 <Shield className="h-8 w-8 text-blue-700 mb-2" />
                 <span className="text-xs text-center text-gray-600">
-                  FDA Approved
+                  FDA-Zulassung
                 </span>
               </div>
               <div className="flex flex-col items-center p-2 border rounded-md">
                 <Shield className="h-8 w-8 text-blue-700 mb-2" />
                 <span className="text-xs text-center text-gray-600">
-                  GMP Certified
+                  GMP-Zertifizierung
                 </span>
               </div>
               <div className="flex flex-col items-center p-2 border rounded-md">
@@ -130,7 +133,7 @@ const Footer = () => {
               <div className="flex flex-col items-center p-2 border rounded-md">
                 <Shield className="h-8 w-8 text-blue-700 mb-2" />
                 <span className="text-xs text-center text-gray-600">
-                  HIPAA Compliant
+                  HIPAA-konform
                 </span>
               </div>
             </div>
@@ -141,18 +144,18 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500 mb-4 md:mb-0">
-            © {new Date().getFullYear()} BioCardin Pharmaceuticals. All rights
-            reserved.
+            © {new Date().getFullYear()} BioCardin Pharmaceuticals. Alle Rechte
+            vorbehalten.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-sm text-gray-500 hover:text-blue-700">
-              Privacy Policy
+              Datenschutzrichtlinie
             </a>
             <a href="#" className="text-sm text-gray-500 hover:text-blue-700">
-              Terms of Use
+              Nutzungsbedingungen
             </a>
             <a href="#" className="text-sm text-gray-500 hover:text-blue-700">
-              Cookie Policy
+              Cookie-Richtlinie
             </a>
             <a href="#" className="text-sm text-gray-500 hover:text-blue-700">
               Sitemap
@@ -162,12 +165,13 @@ const Footer = () => {
 
         <div className="mt-6 text-xs text-gray-400 text-center">
           <p>
-            BioCardin® is a registered trademark. This product is not intended
-            to diagnose, treat, cure, or prevent any disease.
+            BioCardin® ist eine eingetragene Marke. Dieses Produkt ist nicht
+            dazu bestimmt, Krankheiten zu diagnostizieren, zu behandeln, zu
+            heilen oder zu verhindern.
           </p>
           <p className="mt-2">
-            Always consult with your healthcare provider before starting any
-            medication.
+            Konsultieren Sie immer Ihren Arzt, bevor Sie mit der Einnahme von
+            Medikamenten beginnen.
           </p>
         </div>
       </div>

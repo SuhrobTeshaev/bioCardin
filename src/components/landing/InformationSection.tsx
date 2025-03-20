@@ -15,60 +15,60 @@ interface InfoSectionProps {
 }
 
 const InformationSection = ({
-  title = "Understanding Heart Health",
-  description = "Learn about the symptoms, causes, treatment steps, and results of heart conditions and how BioCardin can help improve your heart health.",
+  title = "Verstehen der Herzgesundheit",
+  description = "Erfahren Sie mehr über die Symptome, Ursachen, Behandlungsschritte und Ergebnisse von Herzkrankheiten und wie BioCardin Ihre Herzgesundheit verbessern kann.",
   sections = [
     {
       id: "symptoms",
-      title: "Symptoms",
-      description: "Common signs that may indicate heart health issues:",
+      title: "Symptome",
+      description: "Häufige Anzeichen, die auf Herzprobleme hinweisen können:",
       icon: <Thermometer className="h-10 w-10 text-red-500" />,
       items: [
-        "Chest pain or discomfort",
-        "Shortness of breath",
-        "Fatigue and weakness",
-        "Irregular heartbeat",
-        "Swelling in legs, ankles, or feet",
+        "Brustschmerzen oder Unbehagen",
+        "Atemnot",
+        "Müdigkeit und Schwäche",
+        "Unregelmäßiger Herzschlag",
+        "Schwellungen in Beinen, Knöcheln oder Füßen",
       ],
     },
     {
       id: "causes",
-      title: "Causes",
-      description: "Factors that contribute to heart conditions:",
+      title: "Ursachen",
+      description: "Faktoren, die zu Herzkrankheiten beitragen:",
       icon: <Heart className="h-10 w-10 text-red-500" />,
       items: [
-        "High blood pressure",
-        "High cholesterol",
-        "Smoking",
+        "Hoher Blutdruck",
+        "Hoher Cholesterinspiegel",
+        "Rauchen",
         "Diabetes",
-        "Family history",
-        "Obesity",
+        "Familiäre Vorbelastung",
+        "Fettleibigkeit",
       ],
     },
     {
       id: "treatment",
-      title: "Treatment Steps",
-      description: "How BioCardin helps improve heart health:",
+      title: "Behandlungsschritte",
+      description: "Wie BioCardin die Herzgesundheit verbessert:",
       icon: <Pill className="h-10 w-10 text-red-500" />,
       items: [
-        "Daily medication regimen",
-        "Regular monitoring of heart function",
-        "Lifestyle modifications",
-        "Follow-up with healthcare provider",
-        "Adherence to prescribed dosage",
+        "Tägliche Medikamenteneinnahme",
+        "Regelmäßige Überwachung der Herzfunktion",
+        "Lebensstiländerungen",
+        "Nachsorge beim Arzt",
+        "Einhaltung der verschriebenen Dosierung",
       ],
     },
     {
       id: "results",
-      title: "Results",
-      description: "Expected outcomes with proper treatment:",
+      title: "Ergebnisse",
+      description: "Erwartete Ergebnisse bei richtiger Behandlung:",
       icon: <Award className="h-10 w-10 text-red-500" />,
       items: [
-        "Improved heart function",
-        "Reduced symptoms",
-        "Better quality of life",
-        "Decreased risk of complications",
-        "Long-term heart health maintenance",
+        "Verbesserte Herzfunktion",
+        "Reduzierte Symptome",
+        "Bessere Lebensqualität",
+        "Vermindertes Risiko von Komplikationen",
+        "Langfristige Erhaltung der Herzgesundheit",
       ],
     },
   ],
@@ -113,9 +113,11 @@ const InformationSection = ({
         </div>
 
         <div className="mt-12 text-center">
-          <button className="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-all">
-            Learn How BioCardin Can Help You
-          </button>
+          <a href="#hero-section">
+            <button className="bg-red-600 heartbeat hover:bg-red-700 text-white font-medium py-3 px-6 rounded-md shadow-md hover:shadow-lg transition-all">
+              Erfahren Sie, wie BioCardin Ihnen helfen kann
+            </button>
+          </a>
         </div>
       </div>
     </section>

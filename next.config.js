@@ -3,7 +3,9 @@
 const nextConfig = {
     images: {
         domains: ['images.unsplash.com'],
-    }
+    },
+    basePath: '/bioCardin',
+    assetPrefix: '/bioCardin/',
 };
 
 if (process.env.NEXT_PUBLIC_TEMPO) {

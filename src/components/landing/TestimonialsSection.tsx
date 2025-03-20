@@ -33,11 +33,11 @@ const TestimonialsSection = ({
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            What Our Patients Say
+            Was unsere Patienten sagen
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Real stories from real people who have experienced the benefits of
-            BioCardin
+            Echte Geschichten von echten Menschen, die die Vorteile von
+            BioCardin erlebt haben
           </p>
         </div>
 
@@ -67,9 +67,9 @@ const TestimonialsSection = ({
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-6">
-          <TrustBadge icon="🏆" text="Over 10,000 satisfied patients" />
-          <TrustBadge icon="🔬" text="Clinically tested & approved" />
-          <TrustBadge icon="⭐" text="4.9/5 average rating" />
+          <TrustBadge icon="🏆" text="Über 10.000 zufriedene Patienten" />
+          <TrustBadge icon="🔬" text="Klinisch getestet & zugelassen" />
+          <TrustBadge icon="⭐" text="Durchschnittliche Bewertung 4.9/5" />
         </div>
       </div>
     </section>
@@ -82,7 +82,7 @@ const TestimonialCard = ({
   testimonial: TestimonialProps;
 }) => {
   return (
-    <Card className="h-full bg-white border border-gray-100 shadow-md hover:shadow-lg transition-shadow duration-300">
+    <Card className="h-full  bg-gradient-to-b from-blue-50 to-white border border-gray-100 shadow-md hover:shadow-lg transition-shadow duration-300">
       <CardHeader className="pb-0">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -116,7 +116,7 @@ const TestimonialCard = ({
         </div>
       </CardContent>
       <CardFooter className="text-sm text-gray-500 italic">
-        Verified BioCardin user
+        Verifizierter BioCardin-Benutzer
       </CardFooter>
     </Card>
   );
@@ -138,15 +138,15 @@ const defaultTestimonials: TestimonialProps[] = [
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
     rating: 5,
     testimonial:
-      "After three months of taking BioCardin, my blood pressure has stabilized and I feel more energetic throughout the day. My doctor is impressed with my progress!",
+      "Nach drei Monaten der Einnahme von BioCardin hat sich mein Blutdruck stabilisiert und ich fühle mich den ganzen Tag über energiegeladener. Mein Arzt ist beeindruckt von meinem Fortschritt!",
   },
   {
     name: "Michael Chen",
-    location: "Toronto, Canada",
+    location: "Toronto, Kanada",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
     rating: 5,
     testimonial:
-      "I was skeptical at first, but BioCardin has made a noticeable difference in my heart health. My last checkup showed significant improvement in my cholesterol levels.",
+      "Ich war anfangs skeptisch, aber BioCardin hat einen spürbaren Unterschied in meiner Herzgesundheit gemacht. Bei meiner letzten Untersuchung zeigten sich signifikante Verbesserungen meiner Cholesterinwerte.",
   },
   {
     name: "Emma Rodriguez",
@@ -154,7 +154,7 @@ const defaultTestimonials: TestimonialProps[] = [
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=emma",
     rating: 4,
     testimonial:
-      "BioCardin has become an essential part of my daily routine. I've noticed fewer palpitations and better overall stamina when exercising.",
+      "BioCardin ist zu einem wesentlichen Bestandteil meiner täglichen Routine geworden. Ich habe weniger Herzklopfen und eine bessere allgemeine Ausdauer beim Sport bemerkt.",
   },
   {
     name: "David Wilson",
@@ -162,15 +162,15 @@ const defaultTestimonials: TestimonialProps[] = [
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=david",
     rating: 5,
     testimonial:
-      "After my heart scare last year, my cardiologist recommended BioCardin. Six months in, and my heart function tests are showing remarkable improvement.",
+      "Nach meinem Herzproblem im letzten Jahr empfahl mir mein Kardiologe BioCardin. Sechs Monate später zeigen meine Herzfunktionstests bemerkenswerte Verbesserungen.",
   },
   {
     name: "Priya Patel",
-    location: "Sydney, Australia",
+    location: "Sydney, Australien",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=priya",
     rating: 5,
     testimonial:
-      "As someone with a family history of heart disease, I'm grateful for BioCardin. It's given me peace of mind and my regular check-ups confirm it's working.",
+      "Als jemand mit einer familiären Vorgeschichte von Herzkrankheiten bin ich dankbar für BioCardin. Es gibt mir ein beruhigendes Gefühl und meine regelmäßigen Untersuchungen bestätigen, dass es wirkt.",
   },
 ];
 
