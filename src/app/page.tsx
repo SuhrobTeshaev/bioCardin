@@ -3,7 +3,6 @@ import HeroSection from "@/components/landing/HeroSection";
 import InformationSection from "@/components/landing/InformationSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import SpecialistOpinionSection from "@/components/landing/SpecialistOpinionSection";
-import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
@@ -21,7 +20,7 @@ export default function Home() {
       <SpecialistOpinionSection />
 
       {/* Footer with Contact, Regulatory Info, and Trust Badges */}
-      <Footer />
+    
     </main>
   );
 }

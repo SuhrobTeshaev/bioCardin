@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { CheckCircle, AlertCircle } from "lucide-react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -36,14 +38,14 @@ type FormData = {
 };
 
 const countries = [
-  { value: "us", label: "United States" },
-  { value: "ca", label: "Canada" },
-  { value: "uk", label: "United Kingdom" },
-  { value: "au", label: "Australia" },
-  { value: "de", label: "Germany" },
-  { value: "fr", label: "France" },
-  { value: "es", label: "Spain" },
-  { value: "it", label: "Italy" },
+  { value: "de", label: "Deutschland" },
+  { value: "us", label: "Vereinigte Staaten" },
+  { value: "ca", label: "Kanada" },
+  { value: "uk", label: "Vereinigtes Königreich" },
+  { value: "au", label: "Australien" },
+  { value: "fr", label: "Frankreich" },
+  { value: "es", label: "Spanien" },
+  { value: "it", label: "Italien" },
 ];
 
 const LeadCaptureForm = ({
@@ -51,7 +53,7 @@ const LeadCaptureForm = ({
   onSubmit,
 }: LeadCaptureFormProps = {}) => {
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
-    "idle",
+    "idle"
   );
 
   const form = useForm<FormData>({
@@ -89,21 +91,21 @@ const LeadCaptureForm = ({
     <div
       className={cn(
         "bg-white p-6 rounded-lg shadow-md w-full max-w-md",
-        className,
+        className
       )}
     >
       <h2 className="text-2xl font-bold text-blue-800 mb-4">
-        Request Information
+        Informationen anfordern
       </h2>
       <p className="text-gray-600 mb-6">
-        Fill out the form below to learn more about BioCardin and how it can
-        help with your heart health.
+        Füllen Sie das untenstehende Formular aus, um mehr über BioCardin und
+        seine Vorteile für Ihre Herzgesundheit zu erfahren.
       </p>
 
       {formStatus === "success" && (
         <div className="mb-6 p-3 bg-green-50 border border-green-200 rounded-md flex items-center text-green-700">
           <CheckCircle className="h-5 w-5 mr-2" />
-          <span>Thank you! We'll contact you shortly.</span>
+          <span>Vielen Dank! Wir werden uns in Kürze bei Ihnen melden.</span>
         </div>
       )}
 
@@ -111,7 +113,8 @@ const LeadCaptureForm = ({
         <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-md flex items-center text-red-700">
           <AlertCircle className="h-5 w-5 mr-2" />
           <span>
-            There was an error submitting your request. Please try again.
+            Es gab einen Fehler bei der Übermittlung Ihrer Anfrage. Bitte
+            versuchen Sie es erneut.
           </span>
         </div>
       )}
@@ -123,14 +126,11 @@ const LeadCaptureForm = ({
             name="country"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700">Country</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
+                <FormLabel className="text-gray-700">Land</FormLabel>
+                <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select your country" />
+                      <SelectValue placeholder="Wählen Sie Ihr Land" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -151,7 +151,9 @@ const LeadCaptureForm = ({
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700">Full Name</FormLabel>
+                <FormLabel className="text-gray-700">
+                  Vollständiger Name
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="John Doe" {...field} />
                 </FormControl>
@@ -165,12 +167,21 @@ const LeadCaptureForm = ({
             name="phoneNumber"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700">Phone Number</FormLabel>
+                <FormLabel className="text-gray-700">Telefonnummer</FormLabel>
                 <FormControl>
-                  <Input placeholder="+1 (555) 123-4567" {...field} />
+                  <PhoneInput
+                    country={"de"}
+                    value={field.value}
+                    onChange={field.onChange}
+                    inputProps={{
+                      name: "phoneNumber",
+                      required: true,
+                      autoFocus: false,
+                    }}
+                  />
                 </FormControl>
                 <FormDescription className="text-xs text-gray-500">
-                  We'll never share your phone number with anyone else.
+                  Wir werden Ihre Telefonnummer niemals an Dritte weitergeben.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -179,10 +190,10 @@ const LeadCaptureForm = ({
 
           <Button
             type="submit"
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors animate-[heartbeat_1.7s_ease-in-out_infinite]"
             disabled={formStatus === "success"}
           >
-            Get Information
+            Informationen erhalten
           </Button>
         </form>
       </Form>
