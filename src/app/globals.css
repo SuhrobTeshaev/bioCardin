@@ -67,3 +67,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+@keyframes heartbeat {
+  0%, 20%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.2);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.7s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 20%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.2);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.7s infinite;
+}
