@@ -37,16 +37,8 @@ type FormData = {
   phoneNumber: string;
 };
 
-const countries = [
-  { value: "de", label: "Deutschland" },
-  { value: "us", label: "Vereinigte Staaten" },
-  { value: "ca", label: "Kanada" },
-  { value: "uk", label: "Vereinigtes Königreich" },
-  { value: "au", label: "Australien" },
-  { value: "fr", label: "Frankreich" },
-  { value: "es", label: "Spanien" },
-  { value: "it", label: "Italien" },
-];
+// Оставляем только Германию в списке стран
+const countries = [{ value: "de", label: "Deutschland" }];
 
 const LeadCaptureForm = ({
   className,
@@ -58,31 +50,44 @@ const LeadCaptureForm = ({
 
   const form = useForm<FormData>({
     defaultValues: {
-      country: "",
+      country: "de", // Устанавливаем Германию по умолчанию
       name: "",
       phoneNumber: "",
     },
   });
 
-  const handleSubmit = (data: FormData) => {
+  const handleSubmit = async (data: FormData) => {
     try {
-      // Simulate form submission
-      console.log("Form submitted:", data);
+      const formData = {
+        fio: data.name,
+        phone: data.phoneNumber,
+        country: data.country,
+      };
 
-      // Call the onSubmit prop if provided
-      if (onSubmit) {
-        onSubmit(data);
+      console.log("Отправляемые данные:", formData);
+
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const responseData = await response.json();
+      console.log("Ответ сервера:", responseData);
+
+      if (!response.ok) {
+        throw new Error(responseData.error || "Ошибка при отправке");
       }
 
       setFormStatus("success");
-
-      // Reset form after successful submission
       setTimeout(() => {
         form.reset();
         setFormStatus("idle");
       }, 3000);
     } catch (error) {
-      console.error("Form submission error:", error);
+      console.error("Ошибка отправки:", error);
       setFormStatus("error");
     }
   };
@@ -127,10 +132,15 @@ const LeadCaptureForm = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-gray-700">Land</FormLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
+                <Select
+                  onValueChange={field.onChange}
+                  value={field.value}
+                  defaultValue="de"
+                  // disabled // Делаем селект неактивным, чтобы нельзя было изменить выбор
+                >
                   <FormControl>
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Wählen Sie Ihr Land" />
+                      <SelectValue defaultValue="de">Deutschland</SelectValue>
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -169,16 +179,25 @@ const LeadCaptureForm = ({
               <FormItem>
                 <FormLabel className="text-gray-700">Telefonnummer</FormLabel>
                 <FormControl>
-                  <PhoneInput
-                    country={"de"}
-                    value={field.value}
-                    onChange={field.onChange}
-                    inputProps={{
-                      name: "phoneNumber",
-                      required: true,
-                      autoFocus: false,
-                    }}
-                  />
+                  <div className="relative flex items-center">
+                    {/* Статичный код страны */}
+                    <span className="absolute left-3 text-gray-600 select-none">
+                      +49
+                    </span>
+                    {/* Поле ввода с отступом для кода страны */}
+                    <input
+                      type="tel"
+                      className="w-full pl-12 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="1234567890"
+                      value={field.value}
+                      onChange={(e) => {
+                        // Разрешаем только цифры
+                        const value = e.target.value.replace(/[^\d]/g, "");
+                        field.onChange(value);
+                      }}
+                      maxLength={10} // Ограничиваем длину номера
+                    />
+                  </div>
                 </FormControl>
                 <FormDescription className="text-xs text-gray-500">
                   Wir werden Ihre Telefonnummer niemals an Dritte weitergeben.
